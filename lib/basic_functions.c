@@ -3,6 +3,7 @@
 int is_even(int);
 int is_odd(int);
 int square(int);
+int cube(int);
 
 int is_even(int num)
 {
@@ -19,6 +20,11 @@ int square(int num)
 	return num * num;
 }
 
+int cube(int num)
+{
+	return square(num) * num;
+}
+
 int main(void)
 {
 	int number;
@@ -28,5 +34,6 @@ int main(void)
 	printf("%d is %s.\n",number,(is_even(number)?"even":"not even"));
 	printf("%d is %s.\n",number,(is_odd(number)?"odd":"not odd"));
 	printf("square of %d is %d.\n",number,square(number));
+	printf("cube of %d is %d.\n",number,cube(number));
 	return 0;
 }

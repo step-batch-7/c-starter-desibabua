@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 
 int is_even(int);
 int is_odd(int);
@@ -7,6 +8,7 @@ int cube(int);
 int find_gcd(int,int);
 int find_lcm(int,int);
 double find_si(double,double,double);
+double find_ci(double,double,double);
 
 int is_even(int num)
 {
@@ -44,6 +46,11 @@ double find_si(double sum, double rate, double period)
 	return (sum * rate * period)/100;
 }
 
+double find_ci(double sum, double rate, double period)
+{
+	return sum * pow((1 + rate / 100),period) - sum;
+}
+
 int main(void)
 {
 	int number1,number2;
@@ -73,5 +80,6 @@ int main(void)
 	printf("period :  ");
 	scanf("%lf",&period);
 	printf("simple interest for Rs %.2lf  at %.2lf for  %.1lf years is Rs %.2lf.\n", sum, rate, period, find_si(sum, rate, period));
+	printf("compound interest for Rs %.2lf  at %.2lf for  %.1lf years is Rs %.2lf.\n", sum, rate, period, find_ci(sum, rate, period));
 	return 0;
 }

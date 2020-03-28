@@ -4,6 +4,7 @@ int is_even(int);
 int is_odd(int);
 int square(int);
 int cube(int);
+int find_gcd(int,int);
 
 int is_even(int num)
 {
@@ -25,6 +26,12 @@ int cube(int num)
 	return square(num) * num;
 }
 
+int find_gcd(int num1,int num2)
+{
+	if(!num2) return num1;
+	return num1 % num2 == 0 ? num2 : find_gcd(num2, num1 % num2);
+}
+
 int main(void)
 {
 	int number;
@@ -35,5 +42,13 @@ int main(void)
 	printf("%d is %s.\n",number,(is_odd(number)?"odd":"not odd"));
 	printf("square of %d is %d.\n",number,square(number));
 	printf("cube of %d is %d.\n",number,cube(number));
+	printf("\n");
+
+	int number1,number2;
+	printf("Enter two number :\n");
+	scanf("%d",&number1);
+	scanf("%d",&number2);
+	printf("\n");
+	printf("greatest common divisor of %d and %d is %d.\n",number1,number2,find_gcd(number1,number2));
 	return 0;
 }

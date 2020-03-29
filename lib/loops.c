@@ -8,6 +8,13 @@ int find_even(unsigned int);
 int print_table(int,int);
 int add_numbers(int);
 int mul_numbers(int);
+int odd_numbers_in_range(int,int);
+
+int odd_numbers_in_range(int num1, int num2)
+{
+	num1 % 2 ? print_numbers_in_range(num2, num1, 2) : print_numbers_in_range(num2, num1 + 1, 2);
+	return 0;
+}
 
 int mul_numbers(int terms)
 {
@@ -117,16 +124,23 @@ int main(void)
 	print_table(number1,number2);
 	printf("\n");
 
-	int num;
 	printf("Enter number of terms you want to add :\n");
-	scanf("%d", &num);
-	printf("sum of your numbers is :- %d.\n",add_numbers(num));
+	scanf("%d", &number1);
+	printf("sum of your numbers is :- %d.\n",add_numbers(number1));
 	printf("\n");
 	
-	int num1;
 	printf("Enter number of terms you want to multiply :\n");
-	scanf("%d", &num);
-	printf("multiplication of your numbers is :- %d.\n",mul_numbers(num));
+	scanf("%d", &number1);
+	printf("multiplication of your numbers is :- %d.\n",mul_numbers(number1));
 	printf("\n");
+
+	printf("Enter numbers to get odd numbers between 1st and 2nd number\n");
+	printf("from : ");
+	scanf("%d",&number1);
+	printf("to : ");
+	scanf("%d",&number2);
+	printf("odd numbers between %d and %d are :- ",number1,number2);
+	odd_numbers_in_range(number1,number2);
+	printf(".\n");
 	return 0;
 }

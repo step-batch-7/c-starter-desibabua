@@ -14,6 +14,10 @@ double find_ci(double,double,double);
 double find_fahrenheit(double);
 double find_celsius(double);
 
+double greater(double, double);
+double greatest_of_three(double,double,double);
+double average_of_three(double,double,double);
+
 int is_even(int num)
 {
 	return num % 2 == 0 ? 1 : 0;
@@ -65,6 +69,22 @@ double find_celsius(double temp)
 	return (temp - 32) * 5 / 9;
 }
 
+
+double greater(double num1, double num2)
+{
+	return num1 > num2 ? num1 : num2;
+}
+
+double greatest_of_three(double num1,double num2, double num3)
+{
+	return greater(greater(num1,num2),num3);
+}
+
+double average_of_three(double num1,double num2, double num3)
+{
+	return (num1 + num2 + num3 )/3;
+}
+
 int main(void)
 {
 	int number1,number2;
@@ -103,5 +123,18 @@ int main(void)
 	scanf("%lf",&temp);
 	printf("%.2lf° C is equal to %.2lf° F.\n", temp, find_fahrenheit(temp));
 	printf("%.2lf° F is equal to %.2lf° C.\n", temp ,find_celsius(temp));
+	printf("\n");
+
+	double num1,num2,num3;
+	printf("Enter three numbers:\n");
+	printf("1 st :  ");
+	scanf("%lf",&num1);
+	printf("2 nd :  ");
+	scanf("%lf",&num2);
+	printf("3 rd :  ");
+	scanf("%lf",&num3);
+	printf("greatest number between %.2lf, %.2lf and %.2lf is %.2lf.\n", num1,num2,num3, greatest_of_three(num1,num2,num3));
+	printf("average of %.2lf, %.2lf and %.2lf is %.2lf.\n", num1,num2,num3, average_of_three(num1,num2,num3));
+	printf("\n");
 	return 0;
 }

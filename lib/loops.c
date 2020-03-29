@@ -7,6 +7,20 @@ int find_odds(unsigned int);
 int find_even(unsigned int);
 int print_table(int,int);
 int add_numbers(int);
+int mul_numbers(int);
+
+int mul_numbers(int terms)
+{
+	int mul = 1;
+	for(int index = 1;index <=terms;index++)
+	{
+		int number;
+		printf("number %d :- ",index);
+		scanf("%d",&number);
+		mul *= number;
+	}
+	return mul;
+}
 
 int add_numbers(int terms)
 {
@@ -107,5 +121,12 @@ int main(void)
 	printf("Enter number of terms you want to add :\n");
 	scanf("%d", &num);
 	printf("sum of your numbers is :- %d.\n",add_numbers(num));
+	printf("\n");
+	
+	int num1;
+	printf("Enter number of terms you want to multiply :\n");
+	scanf("%d", &num);
+	printf("multiplication of your numbers is :- %d.\n",mul_numbers(num));
+	printf("\n");
 	return 0;
 }

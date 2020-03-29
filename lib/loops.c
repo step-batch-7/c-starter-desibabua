@@ -9,10 +9,17 @@ int print_table(int,int);
 int add_numbers(int);
 int mul_numbers(int);
 int odd_numbers_in_range(int,int);
+int nth_numbers_in_range(int,int,int);
 
-int odd_numbers_in_range(int num1, int num2)
+int nth_numbers_in_range(int start, int end, int diff)
 {
-	num1 % 2 ? print_numbers_in_range(num2, num1, 2) : print_numbers_in_range(num2, num1 + 1, 2);
+	print_numbers_in_range(end, start, diff);
+	return 0;
+}
+
+int odd_numbers_in_range(int start, int end)
+{
+	start % 2 ? print_numbers_in_range(end, start, 2) : print_numbers_in_range(end, start + 1, 2);
 	return 0;
 }
 
@@ -141,6 +148,18 @@ int main(void)
 	scanf("%d",&number2);
 	printf("odd numbers between %d and %d are :- ",number1,number2);
 	odd_numbers_in_range(number1,number2);
+	printf(".\n");
+
+	int number3;
+	printf("Enter numbers to get every N th number between 1st and 2nd number\n");
+	printf("from : ");
+	scanf("%d",&number1);
+	printf("to : ");
+	scanf("%d",&number2);
+	printf("difference : ");
+	scanf("%d",&number3);
+	printf("Nth numbers between %d and %d are :- ",number1,number2);
+	nth_numbers_in_range(number1, number2, number3);
 	printf(".\n");
 	return 0;
 }

@@ -10,6 +10,19 @@ int add_numbers(int);
 int mul_numbers(int);
 int odd_numbers_in_range(int,int);
 int nth_numbers_in_range(int,int,int);
+int sum_of_even_numbers_in_range(int, int);
+
+int sum_of_even_numbers_in_range(int from, int end)
+{
+	 int sum = from;
+	 int start = from % 2 == 0 ? from : from + 1;
+	 while(start < end - 2)
+	 {
+		 start +=2;
+		sum += start;
+	 }
+	 return sum;
+}
 
 int nth_numbers_in_range(int start, int end, int diff)
 {
@@ -160,6 +173,15 @@ int main(void)
 	scanf("%d",&number3);
 	printf("Nth numbers between %d and %d are :- ",number1,number2);
 	nth_numbers_in_range(number1, number2, number3);
+	printf(".\n");
+
+	printf("\n");
+	printf("Enter numbers to get sum of all even numbers between 1st and 2nd number -------\n");
+	printf("from : ");
+	scanf("%d", &number1);
+	printf("to : ");
+	scanf("%d", &number2);
+	printf("sum of all even numbers between %d and %d is :- %d", number1, number2, sum_of_even_numbers_in_range(number1,number2));
 	printf(".\n");
 	return 0;
 }

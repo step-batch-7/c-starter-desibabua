@@ -7,8 +7,12 @@ int square(int);
 int cube(int);
 int find_gcd(int,int);
 int find_lcm(int,int);
+
 double find_si(double,double,double);
 double find_ci(double,double,double);
+
+double find_fahrenheit(double);
+double find_celsius(double);
 
 int is_even(int num)
 {
@@ -51,6 +55,16 @@ double find_ci(double sum, double rate, double period)
 	return sum * pow((1 + rate / 100),period) - sum;
 }
 
+double find_fahrenheit(double temp)
+{
+	return (temp * 9/5) + 32;
+}
+
+double find_celsius(double temp)
+{
+	return (temp - 32) * 5 / 9;
+}
+
 int main(void)
 {
 	int number1,number2;
@@ -81,5 +95,13 @@ int main(void)
 	scanf("%lf",&period);
 	printf("simple interest for Rs %.2lf  at %.2lf for  %.1lf years is Rs %.2lf.\n", sum, rate, period, find_si(sum, rate, period));
 	printf("compound interest for Rs %.2lf  at %.2lf for  %.1lf years is Rs %.2lf.\n", sum, rate, period, find_ci(sum, rate, period));
+	printf("\n");
+
+	double temp;
+	printf("Enter a temperature to convert it into a different form:\n");
+	printf("temperature :  ");
+	scanf("%lf",&temp);
+	printf("%.2lf° C is equal to %.2lf° F.\n", temp, find_fahrenheit(temp));
+	printf("%.2lf° F is equal to %.2lf° C.\n", temp ,find_celsius(temp));
 	return 0;
 }

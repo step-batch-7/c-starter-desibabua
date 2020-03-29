@@ -5,6 +5,32 @@ int find_fibonacci(unsigned int);
 int print_numbers_in_range(unsigned int,int,int);
 int find_odds(unsigned int);
 int find_even(unsigned int);
+int print_table(int,int);
+int add_numbers(int);
+
+int add_numbers(int terms)
+{
+	int sum = 0;
+	for(int index = 1;index <=terms;index++)
+	{
+		int number;
+		printf("number %d :- ",index);
+		scanf("%d",&number);
+		sum += number;
+	}
+	return sum;
+}
+
+int print_table(int number,int limit)
+{
+	int count = 1;
+	while(count <= limit)
+	{
+		printf("  %d X %d = %d\n",number,count,number*count);
+		count++;
+	}
+	return 0;
+}
 
 int print_numbers_in_range(unsigned int limit,int start,int diff)
 {
@@ -67,5 +93,19 @@ int main(void)
 	printf("even numbers between 1 and %u is :- ",number);
 	find_even(number);
 	printf(".\n");
+
+	int number1,number2;
+	printf("Enter a number and terms to get multiplication table of them .\n");
+	scanf("%d",&number1);
+	scanf("%d",&number2);
+	printf("multiplication table for %d to %u is :-\n",number1,number2);
+	printf("\n");
+	print_table(number1,number2);
+	printf("\n");
+
+	int num;
+	printf("Enter number of terms you want to add :\n");
+	scanf("%d", &num);
+	printf("sum of your numbers is :- %d.\n",add_numbers(num));
 	return 0;
 }

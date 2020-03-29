@@ -2,6 +2,31 @@
 
 unsigned int find_factorial(unsigned int);
 int find_fibonacci(unsigned int);
+int print_numbers_in_range(unsigned int,int,int);
+int find_odds(unsigned int);
+int find_even(unsigned int);
+
+int print_numbers_in_range(unsigned int limit,int start,int diff)
+{
+	while(limit > start)
+	{
+		printf(" %d",start);
+		start += diff;
+	}
+	return 0;
+}
+
+int find_odds(unsigned int limit)
+{
+	print_numbers_in_range(limit,1,2);
+	return 0;	
+}
+
+int find_even(unsigned int limit)
+{
+	print_numbers_in_range(limit,2,2);
+	return 0;	
+}
 
 int find_fibonacci(unsigned int limit)
 {
@@ -33,6 +58,14 @@ int main(void)
 	printf("find_factorial of %u is %u.\n", number, find_factorial(number));
 	printf("fibonacci series for %u is :- ",number);
 	find_fibonacci(number);
+	printf(".\n");
+
+	printf("odd numbers between 1 and %u is :- ",number);
+	find_odds(number);
+	printf(".\n");
+
+	printf("even numbers between 1 and %u is :- ",number);
+	find_even(number);
 	printf(".\n");
 	return 0;
 }

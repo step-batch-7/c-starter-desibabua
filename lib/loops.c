@@ -11,14 +11,26 @@ int mul_numbers(int);
 int odd_numbers_in_range(int,int);
 int nth_numbers_in_range(int,int,int);
 int sum_of_even_numbers_in_range(int, int);
+int reverse_odd_numbers_in_range(int);
+
+int reverse_odd_numbers_in_range(int limit)
+{
+	int index = limit % 2 == 0 ? limit - 1 : limit;
+	while(index >= 1)
+	{
+		printf(" %d",index);
+		index -= 2;
+	}
+	return 0;
+}
 
 int sum_of_even_numbers_in_range(int from, int end)
 {
-	 int sum = from;
 	 int start = from % 2 == 0 ? from : from + 1;
+	 int sum = start;
 	 while(start < end - 2)
 	 {
-		 start +=2;
+		start +=2;
 		sum += start;
 	 }
 	 return sum;
@@ -176,12 +188,20 @@ int main(void)
 	printf(".\n");
 
 	printf("\n");
-	printf("Enter numbers to get sum of all even numbers between 1st and 2nd number -------\n");
+	printf("Enter numbers to get sum of all even numbers between 1st and 2nd number\n");
 	printf("from : ");
 	scanf("%d", &number1);
 	printf("to : ");
 	scanf("%d", &number2);
 	printf("sum of all even numbers between %d and %d is :- %d", number1, number2, sum_of_even_numbers_in_range(number1,number2));
+	printf(".\n");
+
+	printf("\n");
+	printf("Enter a number to get reverse odd numbers upto 1\n");
+	printf("number : ");
+	scanf("%u", &number1);
+	printf("odd numbers between %d and 1 are :-", number1);
+	reverse_odd_numbers_in_range(number1);
 	printf(".\n");
 	return 0;
 }
